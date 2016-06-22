@@ -1,2 +1,2 @@
-# hyocare-android
-Hyocare Android
+# hyocare-ionic
+Hyocare Ionic
