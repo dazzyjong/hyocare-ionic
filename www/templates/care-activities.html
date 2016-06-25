@@ -1,0 +1,92 @@
+<ion-view title="케어" class=" ">
+    <ion-content padding="true" class="has-header">
+        <div class="item item-body ">
+            <p style="margin-top:0px;color:#000000;text-align:center;" class=" ">오늘 고객의 기분은 어땠나요?</p>
+            <div class=" button-bar">
+                <ion-item class="item-checkbox" ng-repeat="feeling in feelings">
+                    <label class="checkbox" >
+                        <input type="checkbox" 
+                            ng-model="feeling.checked" 
+                            ng-click="updateSelection($index, feelings, feeling.level)">
+                    </label>
+                    {{ feeling.level }}
+                </ion-item>
+            </div>
+        </div>
+        <div class="item item-body">
+            <p style="margin-top:0px;color:#000000;text-align:center;" class=" ">고객 신체 상태는 어땠나요?</p>
+            <div class=" button-bar ">
+                <ion-item class="item-checkbox" ng-repeat="status in status_physical">
+                    <label class="checkbox" >
+                        <input type="checkbox" 
+                            ng-model="status.checked" 
+                            ng-click="updateSelection($index, status_physical, status.level)">
+                    </label>
+                    {{ status.level }}
+                </ion-item>
+            </div>
+        </div>
+        <div class="item item-body">
+            <p style="margin-top:0px;color:#000000;text-align:center;" class=" ">고객 식사 상태는 어땠나요?</p>
+            <div class=" button-bar ">
+                <ion-item class="item-checkbox" ng-repeat="status in status_meal">
+                    <label class="checkbox" >
+                        <input type="checkbox" 
+                            ng-model="status.checked" 
+                            ng-click="updateSelection($index, status_meal, status.level)">
+                    </label>
+                    {{ status.level }}
+                </ion-item>
+            </div>
+        </div>
+        <div class="item item-body">
+            <p style="margin-top:0px;color:#000000;text-align:center;" class=" ">고객 인지 상태는 어땠나요?</p>
+            <div id="page5-button-bar21" class=" button-bar ">
+                <ion-item class="item-checkbox" ng-repeat="status in status_cognitive">
+                    <label class="checkbox" >
+                        <input type="checkbox" 
+                            ng-model="status.checked" 
+                            ng-click="updateSelection($index, status_cognitive, status.level)">
+                    </label>
+                    {{ status.level }}
+                </ion-item>
+            </div>
+        </div>
+        <div class="item item-body">
+            <p style="margin-top:0px;color:#000000;text-align:center;" class=" ">고객 소변 실수 횟수는?</p>
+            <div class=" button-bar ">
+                <ion-item class="item-checkbox" ng-repeat="status in status_defecation">
+                    <label class="checkbox" >
+                        <input type="checkbox" 
+                            ng-model="status.checked" 
+                            ng-click="updateSelection($index, status_defecation, status.level)">
+                    </label>
+                    {{ status.level }}
+                </ion-item>
+            </div>
+        </div>
+        <div class="item item-body">
+            <p style="margin-top:0px;color:#000000;text-align:center;" class=" ">고객 대변 실수 횟수는?</p>
+            <div class=" button-bar ">
+                <ion-item class="item-checkbox" ng-repeat="status in status_big_defecation">
+                    <label class="checkbox" >
+                        <input type="checkbox" 
+                            ng-model="status.checked" 
+                            ng-click="updateSelection($index, status_big_defecation, status.level)">
+                    </label>
+                    {{ status.level }}
+                </ion-item>
+            </div>
+        </div>
+        <form class="list ">
+            <label class="item item-input">
+                <span class="input-label">특이사항</span>
+                <textarea rows="3" 
+                ng-model="status_comment" 
+                ng-change="changeBack(this)"></textarea>
+            </label>
+        </form>
+        <button class="button button-block button-positive"
+        ng-click="report()">전 송</button>
+    </ion-content>
+</ion-view>

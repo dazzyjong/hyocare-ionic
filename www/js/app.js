@@ -19,8 +19,23 @@ angular.module('hyocare', ['ionic', 'hyocare.controllers', 'hyocare.services','h
     }
   });
 })
-
-.config(function($stateProvider, $urlRouterProvider) {
+.factory('authInterceptor', function ($rootScope, $q, $window) {
+  return {
+    request: function (config) {
+      if ($window.sessionStorage.getItem('accessToken')) {
+        config.headers.Authorization = $window.sessionStorage.getItem('accessToken');
+      }
+      return config;
+    },
+    responseError: function (rejection) {
+      if (rejection.status === 401) {
+        // handle the case where the user is not authenticated
+      }
+      return $q.reject(rejection);
+    }
+  };
+})
+.config(function($stateProvider, $urlRouterProvider, $httpProvider) {
   $stateProvider
     .state('login', {
     url: '/login',
@@ -54,12 +69,13 @@ angular.module('hyocare', ['ionic', 'hyocare.controllers', 'hyocare.services','h
         }
       }
     })
-    .state('tab.chat-detail', {
-      url: '/chats/:chatId',
+
+  .state('tab.care-activities', {
+      url: '/care/activities/:carerecipientId',
       views: {
-        'tab-chats': {
-          templateUrl: 'templates/chat-detail.html',
-          controller: 'ChatDetailCtrl'
+        'tab-care': {
+          templateUrl: 'templates/care-activities.html',
+          controller: 'CareActivitiesCtrl'
         }
       }
     })
@@ -76,4 +92,6 @@ angular.module('hyocare', ['ionic', 'hyocare.controllers', 'hyocare.services','h
 
   $urlRouterProvider.otherwise('/login');
 
+  $httpProvider.interceptors.push('authInterceptor');
+  $httpProvider.defaults.useXDomain = true;
 });

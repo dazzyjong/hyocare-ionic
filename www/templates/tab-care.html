@@ -1,4 +1,14 @@
 <ion-view view-title="케어">
   <ion-content>
+    <div class="list">
+      <a class="item item-thumbnail-left" 
+      ng-repeat="carerecipient in carerecipients"
+      href="#/tab/care/activities/{{carerecipient.code}}">
+        <!--<img ng-src="{{carerecipient.thumbnail}}" 
+        ng-if="carerecipient.thumbnail.startsWith('http')">-->
+        <h2>{{carerecipient.lastname}} {{carerecipient.firstname}} 
+          {{carerecipient.birthdate}}</h2>
+      </a>
+    </div>
   </ion-content>
 </ion-view>
