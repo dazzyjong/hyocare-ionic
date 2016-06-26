@@ -9,80 +9,80 @@
                             ng-model="feeling.checked" 
                             ng-click="updateSelection($index, feelings, feeling.level)">
                     </label>
-                    {{ feeling.level }}
+                    {{ feeling.label }}
                 </ion-item>
             </div>
         </div>
         <div class="item item-body">
             <p style="margin-top:0px;color:#000000;text-align:center;" class=" ">고객 신체 상태는 어땠나요?</p>
             <div class=" button-bar ">
-                <ion-item class="item-checkbox" ng-repeat="status in status_physical">
+                <ion-item class="item-checkbox" ng-repeat="physical in status_physical">
                     <label class="checkbox" >
                         <input type="checkbox" 
-                            ng-model="status.checked" 
-                            ng-click="updateSelection($index, status_physical, status.level)">
+                            ng-model="physical.checked" 
+                            ng-click="updateSelection($index, status_physical, physical.level)">
                     </label>
-                    {{ status.level }}
+                    {{ physical.label }}
                 </ion-item>
             </div>
         </div>
         <div class="item item-body">
             <p style="margin-top:0px;color:#000000;text-align:center;" class=" ">고객 식사 상태는 어땠나요?</p>
             <div class=" button-bar ">
-                <ion-item class="item-checkbox" ng-repeat="status in status_meal">
+                <ion-item class="item-checkbox" ng-repeat="meal in status_meal">
                     <label class="checkbox" >
                         <input type="checkbox" 
-                            ng-model="status.checked" 
-                            ng-click="updateSelection($index, status_meal, status.level)">
+                            ng-model="meal.checked" 
+                            ng-click="updateSelection($index, status_meal, meal.level)">
                     </label>
-                    {{ status.level }}
+                    {{ meal.label }}
                 </ion-item>
             </div>
         </div>
         <div class="item item-body">
             <p style="margin-top:0px;color:#000000;text-align:center;" class=" ">고객 인지 상태는 어땠나요?</p>
             <div id="page5-button-bar21" class=" button-bar ">
-                <ion-item class="item-checkbox" ng-repeat="status in status_cognitive">
+                <ion-item class="item-checkbox" ng-repeat="cognitive in status_cognitive">
                     <label class="checkbox" >
                         <input type="checkbox" 
-                            ng-model="status.checked" 
-                            ng-click="updateSelection($index, status_cognitive, status.level)">
+                            ng-model="cognitive.checked" 
+                            ng-click="updateSelection($index, status_cognitive, cognitive.level)">
                     </label>
-                    {{ status.level }}
+                    {{ cognitive.label }}
                 </ion-item>
             </div>
         </div>
         <div class="item item-body">
             <p style="margin-top:0px;color:#000000;text-align:center;" class=" ">고객 소변 실수 횟수는?</p>
             <div class=" button-bar ">
-                <ion-item class="item-checkbox" ng-repeat="status in status_defecation">
+                <ion-item class="item-checkbox" ng-repeat="dececation in status_defecation">
                     <label class="checkbox" >
                         <input type="checkbox" 
-                            ng-model="status.checked" 
-                            ng-click="updateSelection($index, status_defecation, status.level)">
+                            ng-model="dececation.checked" 
+                            ng-click="updateSelection($index, status_defecation, dececation.level)">
                     </label>
-                    {{ status.level }}
+                    {{ dececation.level }}
                 </ion-item>
             </div>
         </div>
         <div class="item item-body">
             <p style="margin-top:0px;color:#000000;text-align:center;" class=" ">고객 대변 실수 횟수는?</p>
             <div class=" button-bar ">
-                <ion-item class="item-checkbox" ng-repeat="status in status_big_defecation">
+                <ion-item class="item-checkbox" ng-repeat="big_defecation in status_big_defecation">
                     <label class="checkbox" >
                         <input type="checkbox" 
-                            ng-model="status.checked" 
-                            ng-click="updateSelection($index, status_big_defecation, status.level)">
+                            ng-model="big_defecation.checked" 
+                            ng-click="updateSelection($index, status_big_defecation, big_defecation.level)">
                     </label>
-                    {{ status.level }}
+                    {{ big_defecation.level }}
                 </ion-item>
             </div>
         </div>
         <form class="list ">
             <label class="item item-input">
                 <span class="input-label">특이사항</span>
-                <textarea rows="3" 
-                ng-model="status_comment" 
+                <textarea rows="3"
+                ng-model="activities.status_comment"
                 ng-change="changeBack(this)"></textarea>
             </label>
         </form>
