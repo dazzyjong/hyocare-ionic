@@ -27,27 +27,27 @@ angular.module('hyocare.controllers', ['hyocare.user', 'hyocare.activities'])
     $scope.feelings = [
         { level:"1", label: "절망", checked: false },
         { level:"2", label: "슬픔", checked: false },
-        { level:"3", label: "우울", checked: false },
+        { level:"3", label: "평범", checked: false },
         { level:"4", label: "행복", checked: false }
     ];
 
     $scope.status_physical = [
-      { level:"1", label: "많이 나빠잠",  checked: false},
-      { level:"2", label: "조금 나빠잠",  checked: false},
+      { level:"1", label: "많이 나빠짐",  checked: false},
+      { level:"2", label: "조금 나빠짐",  checked: false},
       { level:"3", label: "보통",       checked: false},
       { level:"4", label: "조금 좋아짐",  checked: false},
       { level:"5", label: "매우 좋음",   checked: false}
     ];
     $scope.status_meal = [
-      { level:"1", label: "많이 나빠잠",  checked: false},
-      { level:"2", label: "조금 나빠잠",  checked: false},
+      { level:"1", label: "많이 나빠짐",  checked: false},
+      { level:"2", label: "조금 나빠짐",  checked: false},
       { level:"3", label: "보통",       checked: false},
       { level:"4", label: "조금 좋아짐",  checked: false},
       { level:"5", label: "매우 좋음",   checked: false}
     ];
     $scope.status_cognitive = [
-      { level:"1", label: "많이 나빠잠",  checked: false},
-      { level:"2", label: "조금 나빠잠",  checked: false},
+      { level:"1", label: "많이 나빠짐",  checked: false},
+      { level:"2", label: "조금 나빠짐",  checked: false},
       { level:"3", label: "보통",       checked: false},
       { level:"4", label: "조금 좋아짐",  checked: false},
       { level:"5", label: "매우 좋음",   checked: false}
@@ -75,8 +75,7 @@ angular.module('hyocare.controllers', ['hyocare.user', 'hyocare.activities'])
     status_cognitive:'',
     status_comment:'동일'
   };
-    $scope.updateSelection = function(position, objs, level) {
-
+    $scope.check = function(objs, level) {
       switch(objs) {
         case $scope.feelings:
           console.log("feeling");
@@ -103,12 +102,41 @@ angular.module('hyocare.controllers', ['hyocare.user', 'hyocare.activities'])
         break;
       }
         angular.forEach(objs, function(obj, index) {
-            if (position != index)
+            if (level != obj.level) {
                 obj.checked = false;
-                //$scope.selected = level;
+            } else {
+              obj.checked = true;
             }
-        );
+        });
         console.log($scope.activities);
+    }
+
+    $scope.isChecked = function(objs) {
+      switch(objs) {
+        case $scope.feelings:
+          
+        break;
+        
+        case $scope.status_physical:
+        	$scope.activities.status_physical = level.valueOf();
+        break;
+
+        case $scope.status_meal:
+          $scope.activities.status_meal = level.valueOf();
+        break;
+
+        case $scope.status_cognitive:
+        	$scope.activities.status_cognitive = level.valueOf();
+        break;
+        
+        case $scope.status_defecation:
+        	$scope.activities.status_defecation = level.valueOf();
+        break;
+
+        case $scope.status_big_defecation:
+        console.log("status_big_defecation");
+        break;
+      }
     }
 
     $scope.changeBack = function(obj) {
