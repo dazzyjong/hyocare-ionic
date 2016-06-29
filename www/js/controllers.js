@@ -70,15 +70,17 @@ angular.module('hyocare.controllers', ['hyocare.user', 'hyocare.activities'])
   $scope.activities = {
     carerecipient_code: $scope.carerecipientId,
     status_defecation:'',
+    status_big_defecation:'',
     status_physical:'',
     status_meal:'',
     status_cognitive:'',
+    status_feeling:'',
     status_comment:'동일'
   };
     $scope.check = function(objs, level) {
       switch(objs) {
         case $scope.feelings:
-          console.log("feeling");
+          $scope.activities.status_feeling = level.valueOf();
         break;
         
         case $scope.status_physical:
@@ -98,7 +100,7 @@ angular.module('hyocare.controllers', ['hyocare.user', 'hyocare.activities'])
         break;
 
         case $scope.status_big_defecation:
-        console.log("status_big_defecation");
+        $scope.activities.status_big_defecation = level.valueOf();
         break;
       }
         angular.forEach(objs, function(obj, index) {
