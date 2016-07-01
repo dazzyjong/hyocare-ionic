@@ -13,7 +13,6 @@ angular.module('hyocare.controllers', ['hyocare.user', 'hyocare.activities'])
   });
 
   $scope.openActivities = function(code) {
-    console.log("openActivities")
     $ionicHistory.nextViewOptions({historyRoot: true});    
     $state.go('tab.home');
   }
@@ -75,7 +74,7 @@ angular.module('hyocare.controllers', ['hyocare.user', 'hyocare.activities'])
     status_meal:'',
     status_cognitive:'',
     status_feeling:'',
-    status_comment:'동일'
+    status_comment:'없음'
   };
     $scope.check = function(objs, level) {
       switch(objs) {
@@ -100,7 +99,7 @@ angular.module('hyocare.controllers', ['hyocare.user', 'hyocare.activities'])
         break;
 
         case $scope.status_big_defecation:
-        $scope.activities.status_big_defecation = level.valueOf();
+          $scope.activities.status_big_defecation = level.valueOf();
         break;
       }
         angular.forEach(objs, function(obj, index) {
@@ -111,34 +110,6 @@ angular.module('hyocare.controllers', ['hyocare.user', 'hyocare.activities'])
             }
         });
         console.log($scope.activities);
-    }
-
-    $scope.isChecked = function(objs) {
-      switch(objs) {
-        case $scope.feelings:
-          
-        break;
-        
-        case $scope.status_physical:
-        	$scope.activities.status_physical = level.valueOf();
-        break;
-
-        case $scope.status_meal:
-          $scope.activities.status_meal = level.valueOf();
-        break;
-
-        case $scope.status_cognitive:
-        	$scope.activities.status_cognitive = level.valueOf();
-        break;
-        
-        case $scope.status_defecation:
-        	$scope.activities.status_defecation = level.valueOf();
-        break;
-
-        case $scope.status_big_defecation:
-        console.log("status_big_defecation");
-        break;
-      }
     }
 
     $scope.changeBack = function(obj) {

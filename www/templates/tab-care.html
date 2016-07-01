@@ -1,14 +1,28 @@
 <ion-view view-title="케어">
   <ion-content>
     <div class="list">
-      <a class="item item-thumbnail-left" 
+      <a ng-if="carerecipient.is_submit"
+      class="item-avatar item disabled"
       ng-repeat="carerecipient in carerecipients"
-      href="#/tab/care/activities/{{carerecipient.code}}">
-        <!--<img ng-src="{{carerecipient.thumbnail}}" 
-        ng-if="carerecipient.thumbnail.startsWith('http')">-->
-        <h2>{{carerecipient.lastname}} {{carerecipient.firstname}} 
+      ng-href="">
+        <img src="../img/avatar-img.png">
+        <h2>{{carerecipient.lastname}} {{carerecipient.firstname}} <br>
           {{carerecipient.birthdate}}</h2>
+          <span class="badge badge-assertive">
+            미입력
+          </span>          
       </a>
+      <a ng-if="!carerecipient.is_submit"
+      class="item-avatar item"
+      ng-repeat="carerecipient in carerecipients"
+      ng-href="#/tab/care/activities/{{carerecipient.code}}">
+        <img src="../img/avatar-img.png">
+        <h2>{{carerecipient.lastname}} {{carerecipient.firstname}} <br>
+          {{carerecipient.birthdate}}</h2>
+          <span class="badge badge-balanced">
+            완료
+          </span>         
+      </a>      
     </div>
   </ion-content>
 </ion-view>
