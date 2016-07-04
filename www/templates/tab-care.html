@@ -1,11 +1,11 @@
-<ion-view view-title="케어">
+<ion-view view-title="케어" cache-view="false">
   <ion-content>
     <div class="list">
       <a ng-if="carerecipient.is_submit"
       class="item-avatar item disabled"
       ng-repeat="carerecipient in carerecipients"
       ng-href="">
-        <img src="../img/avatar-img.png">
+        <img src="img/avatar-img.png">
         <h2>{{carerecipient.lastname}} {{carerecipient.firstname}} <br>
           {{carerecipient.birthdate}}</h2>
           <span class="badge badge-assertive">
@@ -16,7 +16,7 @@
       class="item-avatar item"
       ng-repeat="carerecipient in carerecipients"
       ng-href="#/tab/care/activities/{{carerecipient.code}}">
-        <img src="../img/avatar-img.png">
+        <img src="img/avatar-img.png">
         <h2>{{carerecipient.lastname}} {{carerecipient.firstname}} <br>
           {{carerecipient.birthdate}}</h2>
           <span class="badge badge-balanced">

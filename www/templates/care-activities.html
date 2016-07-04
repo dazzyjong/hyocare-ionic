@@ -6,7 +6,7 @@
                     <a ng-repeat="feeling in feelings" class="button button-light" 
                     ng-class="{'button-positive': feeling.checked}"
                     href="" ng-click="check(feelings, feeling.level)">
-                        <img src="../img/{{feeling.level}}.png" width="100%"><br>
+                        <img src="img/{{feeling.level}}.png" width="100%"><br>
                         {{ feeling.label }}
                     </a>
             </div>
@@ -17,7 +17,7 @@
                 <a ng-repeat="physical in status_physical" class="button button-light"
                 ng-class="{'button-positive': physical.checked}"
                 href="" ng-click="check(status_physical, physical.level)">
-                    <img src="../img/heart.png" width="100%"><br>
+                    <img src="img/heart.png" width="100%"><br>
                     <p style="line-height: 100%;">{{ physical.label }}</p>
                 </a>                
             </div>
@@ -28,7 +28,7 @@
                 <a ng-repeat="meal in status_meal" class="button button-light" 
                 ng-class="{'button-positive': meal.checked}"
                 href="" ng-click="check(status_meal, meal.level)">
-                    <img src="../img/heart.png" width="100%"><br>
+                    <img src="img/heart.png" width="100%"><br>
                     <p style="line-height: 100%;">{{ meal.label }}</p>
                 </a>  
             </div>
@@ -39,7 +39,7 @@
                 <a ng-repeat="cognitive in status_cognitive" class="button button-light" 
                 ng-class="{'button-positive': cognitive.checked}"
                 href="" ng-click="check( status_cognitive, cognitive.level)">
-                    <img src="../img/heart.png" width="100%"><br>
+                    <img src="img/heart.png" width="100%"><br>
                     <p style="line-height: 100%;">{{ cognitive.label }}</p>
                 </a>  
             </div>
@@ -50,7 +50,7 @@
                 <a ng-repeat="defecation in status_defecation" class="button button-light" 
                 ng-class="{'button-positive': defecation.checked}"
                 href="" ng-click="check(status_defecation, defecation.level)">
-                    <img src="../img/heart.png" width="100%"><br>
+                    <img src="img/heart.png" width="100%"><br>
                     <p style="line-height: 100%;">{{ defecation.level }}</p>
                 </a>  
             </div>
@@ -61,7 +61,7 @@
                 <a ng-repeat="big_defecation in status_big_defecation" class="button button-light" 
                 ng-class="{'button-positive': big_defecation.checked}"
                 href="" ng-click="check(status_big_defecation, big_defecation.level)">
-                    <img src="../img/heart.png" width="100%"><br>
+                    <img src="img/heart.png" width="100%"><br>
                     <p style="line-height: 100%;">{{ big_defecation.level }}</p>
                 </a>  
             </div>
